@@ -2,6 +2,7 @@ const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
 const mongoose = require('mongoose');
+const mongoURI = process.env.MONGO_URI;
 const path = require('path');
 
 // Initialize Express and Socket.io
@@ -9,8 +10,10 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
 
+require('dotenv').config();
+
 // MongoDB Connection
-mongoose.connect('mongodb://localhost:27017/chat-app', {
+mongoose.connect('mongodb+srv://Sparsha:<qpYN4Xs6PWBr45nQ>@chat-app-cluster.btw7k.mongodb.net/?retryWrites=true&w=majority&appName=chat-app-cluster', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
