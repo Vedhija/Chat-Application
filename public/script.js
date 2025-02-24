@@ -1,6 +1,9 @@
 
 
-const socket = io();
+const socket = io("https://chat-application-1-4f5y.onrender.com/", {
+    transports: ["websocket"]
+});
+
 
 // DOM Elements
 const joinContainer = document.getElementById('join-container');
